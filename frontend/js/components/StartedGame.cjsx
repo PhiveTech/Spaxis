@@ -51,14 +51,16 @@ module.exports = React.createClass(
     @pushExpressions(@state.expressions)
 
   render: ->
-    <Computer
-      content={<Graph data={@props.data} />}
-      timeRemaining={('0'+Math.round(@props.data.gameState.turnTime/100)).slice(-2)}
-      value={@currentExpression()}
-      onValueChange={@handleExpressionChange}
-      buttonTitle='FIRE'
-      buttonEnabled={@canFire()}
-      buttonColor='black'
-      onSubmit={@handleSubmit}
-    />
+    return (
+      <Computer
+        content={<Graph data={@props.data} />}
+        timeRemaining={('0'+Math.round(@props.data.gameState.turnTime/100)).slice(-2)}
+        value={@currentExpression()}
+        onValueChange={@handleExpressionChange}
+        buttonTitle='FIRE'
+        buttonEnabled={@canFire()}
+        buttonColor='black'
+        onSubmit={@handleSubmit}
+      />
+    )
 )
