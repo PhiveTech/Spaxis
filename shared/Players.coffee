@@ -66,7 +66,7 @@ module.exports = class Players
 
       team.players.push
         id: id
-        name: 'Player ' + (@_players().length + 1)
+        name: 'Noob ' + (@_players().length + 1)
         nameChanged: false
         active: false
         dots: []
