@@ -9,5 +9,5 @@ joinGame = (endpoint) ->
   r.send()
 
 module.exports = 
-  public: -> joinGame('/joinPublicGame')
+  public: -> joinGame('/joinPublicGame(get some friends noob)')
   private: -> joinGame('/createPrivateGame')
