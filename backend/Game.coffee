@@ -1,12 +1,26 @@
 _ = require('lodash')
 uuid = require('uuid')
+fs = require('fs')
 
 module.exports = class Game
   @games = {}
   @openGameId = null
 
+  @_capitalize: (word) ->
+    word[0].toUpperCase() + word[1..-1].toLowerCase()
+
+  @adjectives = (@_capitalize(word) for word in fs.readFileSync('adjectives', {'encoding': 'utf-8'}).trim().split('\n'))
+  @animals = (@_capitalize(word) for word in fs.readFileSync('animals', {'encoding': 'utf-8'}).trim().split('\n'))
+
+
   @_generateGameId: ->
-    uuid.v4().substr(0,8)
+    @_getAdjective() + @_getAdjective() + @_getAnimal()
+
+  @_getAdjective: ->
+    @adjectives[Math.floor(Math.random() * @adjectives.length)]
+
+  @_getAnimal: ->
+    @animals[Math.floor(Math.random() * @animals.length)]
 
   @getById: (id) ->
     @games[id]
