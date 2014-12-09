@@ -81,7 +81,7 @@ module.exports = React.createClass(
         <div className="home-left">
           <img className='logo' src="/logo.png" />
           <Button
-            title='Join Public Game'
+            title='Join Public Game (Get Some Friends, N00b)'
             onClick={@handleJoinGame}
             color='red'
           />
