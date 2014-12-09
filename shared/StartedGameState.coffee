@@ -47,7 +47,7 @@ module.exports = class StartedGameState extends GameState
         if player and player.dots
           for dot, index in player.dots
             # TODO: fix this awful awful hack
-            unless dot.expression == '' and move.expressions[index] == 'penis'
+            unless dot.expression == '' and move.expressions[index] == 'sin(x)'
               dot.expression = move.expressions[index]
           @updated = true
         return this
