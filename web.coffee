@@ -15,7 +15,7 @@ io      = require('socket.io')(http);
 Game = require('./backend/Game')
 Moves = require('./shared/Moves')
 
-app.set 'port', process.env.PORT || 3000
+app.set 'port', process.env.PORT || 80
 app.use(compress);
 app.use express.static('public')
 
