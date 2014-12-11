@@ -26,12 +26,12 @@ else
   app.use require('morgan')('default')
 
 playerCount = 0
-app.post '/joinPublicGame', (req, res) ->
+app.post '/spaxis/joinPublicGame', (req, res) ->
   Game.resetOpenGame() if playerCount % 4 == 0
   playerCount++
   res.send(Game.openGameId)
 
-app.post '/createPrivateGame', (req, res) ->
+app.post '/spaxis/createPrivateGame', (req, res) ->
   gameId = Game.createPrivateGame()
   res.send(gameId)
 
@@ -58,7 +58,7 @@ io.on 'connection', (socket) ->
 
 # Serve index.jade for all other routes
 app.set 'views', __dirname + '/backend'
-app.get '/*', (req, res) ->
+app.get '/spaxis/*', (req, res) ->
   res.render('index.jade')
 
 # Start the server
